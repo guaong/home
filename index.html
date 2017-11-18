@@ -9,7 +9,10 @@
 		var text;
 		var i = 0;
 		var timing;
-		var isStart = false; 
+		var isStart = true; 
+		window.onload=function(){
+			isStart = false;
+		}
 		function playVideo(){
 			if (!isStart) {
 				text = $("#text");
@@ -17,8 +20,8 @@
 				timing = setInterval(showNext,5000);
 				isStart = true;
 				$("#play").fadeOut(500);
+				isVideoStop();
 			}
-			isVideoStop();
 		}
 		function isVideoStop(){
 			var video=document.getElementById("video");  
