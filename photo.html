@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>photo</title>
+	<link rel="stylesheet" type="text/css" href="style/navigation_2.css">
+	<style type="text/css">
+		body{
+			background: #000;
+			text-align: center;
+			margin: 0;
+		}
+		#blocks{
+			position: absolute;
+			top:20%;
+			margin-left: 10%;
+			width: 80%;
+			background: #fff;
+			float: left;
+		}
+		.block{
+			width: 20%;
+			height: 200px;
+			float: left;
+			background: #fff;
+			-webkit-filter:grayscale(100%);
+		}
+		.block:hover{
+			-webkit-filter:grayscale(0%);
+		}
+		.block_img{
+			width: 100%;
+			height: 100%;
+		}
+
+		#btn{
+			position: absolute;
+			bottom: 5%;
+			width: 100%;
+			text-align: center;
+		}
+		#last,#next{
+			text-transform:uppercase; /* 大写字母 */
+			font-size: 20px;
+			background: #f74d61;
+			border-style: none;
+			color: #fff;
+			padding-left: 50px;
+			padding-right: 50px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			outline: none;/* 取消点击按钮后的默认边框 */
+			cursor:pointer;/* 焦点变成"手" */
+			font-weight:bold;
+		}
+		#last{
+			border-radius: 100px 0 0 100px;
+		}
+		#next{
+			border-radius: 0 100px 100px 0;
+		}
+		#last:active,#next:active{
+			background: #454545;
+		}
+	</style>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<ul id="navigation_bar">
+		<li class="navigation_bar_li"><a href="" class="navigation_bar_a">home</a></li>
+		<li class="navigation_bar_li"><a href="" class="navigation_bar_a">other</a></li>
+		<li class="navigation_bar_li"><a href="" class="navigation_bar_a">article</a></li>
+	</ul>
+
+	<div id="blocks">
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/01.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/02.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/03.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/04.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/05.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/06.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/07.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/08.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/09.jpg" class="block_img">
+			</a>
+		</div>
+		<div class="block">
+			<a href="" class="block_a">
+				<img src="image/10.jpg" class="block_img">
+			</a>
+		</div>
+	</div>
+
+	<div id="btn">
+		<input type="button" value="last" id="last">
+		<input type="button" value="next" id="next">
+	</div>
+</body>
+</html>

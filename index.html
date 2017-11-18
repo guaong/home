@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>guaong</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		var content = new Array("welcome to my home","i am guaong", "this is my blog", "to record life and some learning notes", "thank you again for coming", "my home");
+		var text;
+		var i = 0;
+		var timing;
+		var isStart = false; 
+		function playVideo(){
+			if (!isStart) {
+				text = $("#text");
+				document.getElementById('video').play();
+				timing = setInterval(showNext,5000);
+				isStart = true;
+				$("#play").fadeOut(500);
+			}
+			isVideoStop();
+		}
+		function isVideoStop(){
+			var video=document.getElementById("video");  
+			video.addEventListener("ended",function(){  
+    			$('video').hide();     
+			});
+		}
+		function showNext(){
+			text.text(content[i]);
+			text.fadeIn(500);
+			i++;
+			if(i >= content.length){
+				clearInterval(timing);
+				$("#content").fadeIn(3000);
+				text.animate({fontSize:'105px', fontWeight:'900'}, 1000);
+				return;
+			}
+			text.delay(3000).fadeOut(1000);
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="style/navigation_1.css">
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			background: #000;
+		}
+		video{
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			min-height: 100%;
+			min-width: 100%;
+			width: 100%;
+			filter: grayscale(100%);
+			-webkit-filter:grayscale(100%);
+		}
+		/*--------------- top ---------------*/
+		
+		/*------------center-------------*/
+		#text{
+			color: #fff;
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			top: 30%;
+			font-size: 85px;
+			text-transform:uppercase;
+		}
+		/*----------center-bottom-------------*/
+		#content{
+			position: absolute;
+			width: 100%;
+			color: #fff;
+			font-weight: bold;
+			text-align: center;
+			bottom: 5%;
+			display: none;
+		}
+		/*-------------bottom---------------*/
+		#btn{
+			position: absolute;
+			bottom: 10%;
+			width: 100%;
+			text-align: center;
+		}
+		#play{
+			text-transform:uppercase; /* 大写字母 */
+			font-size: 40px;
+			background: #008e59;
+			border-radius: 100px;
+			border-style: none;
+			color: #fff;
+			padding-left: 50px;
+			padding-right: 50px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			outline: none;/* 取消点击按钮后的默认边框 */
+			cursor:pointer;/* 焦点变成"手" */
+			font-weight:bold;
+		}
+		#play:active{
+			background: #454545;
+		}
+	</style>
+</head>
+<body>
+	<video id="video" preload>
+		<source src="video/bg2.mp4">
+	</video>
+
+	<!-- 导航栏 -->
+	<ul id="navigation_bar">
+		<li class="navigation_bar_li"><a href="" class="navigation_bar_a">other</a></li>
+		<li class="navigation_bar_li"><a href="photo.html" class="navigation_bar_a">photo</a></li>
+		<li class="navigation_bar_li"><a href="" class="navigation_bar_a">article</a></li>
+	</ul>
+
+	<div id="text">welcome to my home</div>
+
+	<div id="content">Contact author<br>QQ:597384579</div>
+
+	<div id="btn">
+		<input type="button" value="play" id="play" onclick="playVideo()">
+	</div>
+</body>
+</html>
