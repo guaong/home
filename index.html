@@ -10,10 +10,9 @@
 		var i = 0;
 		var timing;
 		var canPlay = false; 
-		var video = document.getElementById('video');
-		video.addEventListener("canplay", function(){
+		window.onload=function(){
 			canPlay = true;
-		});
+		}
 		function playVideo(){
 			if (canPlay) {
 				$("video").css("display", "block");
