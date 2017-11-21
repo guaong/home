@@ -9,12 +9,14 @@
 		var text;
 		var i = 0;
 		var timing;
-		var isStart = true; 
-		window.onload=function(){
-			isStart = false;
-		}
+		var canPlay = false; 
+		var video = document.getElementById('video');
+		video.addEventListener("canplay", function(){
+			canPlay = true;
+		});
 		function playVideo(){
-			if (!isStart) {
+			if (canPlay) {
+				$("video").css("display", "block");
 				text = $("#text");
 				document.getElementById('video').play();
 				timing = setInterval(showNext,5000);
@@ -50,6 +52,7 @@
 			background: #000;
 		}
 		video{
+			display: none;
 			position: fixed;
 			right: 0;
 			bottom: 0;
