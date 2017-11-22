@@ -10,9 +10,7 @@
 		var i = 0;
 		var timing;
 		var canPlay = false; 
-		window.onload=function(){
-			document.getElementById("video").oncanplaythrough=loadComplete();
-		}
+		document.getElementById("video").oncanplaythrough=loadComplete();
 		function loadComplete(){
 			canPlay = true;
 		}
