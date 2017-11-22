@@ -11,6 +11,9 @@
 		var timing;
 		var canPlay = false; 
 		window.onload=function(){
+			document.getElementById("video").oncanplaythrough=loadComplete();
+		}
+		function loadComplete(){
 			canPlay = true;
 		}
 		function playVideo(){
