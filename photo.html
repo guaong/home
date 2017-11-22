@@ -3,6 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>photo</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var i = 1;
+			$(".block").each(function(){
+				$(this).fadeIn(i * 1000);
+				i++;
+			});
+		}
+	</script>
 	<link rel="stylesheet" type="text/css" href="style/navigation_2.css">
 	<style type="text/css">
 		body{
@@ -19,6 +29,7 @@
 			float: left;
 		}
 		.block{
+			display: none;
 			width: 20%;
 			height: 200px;
 			float: left;

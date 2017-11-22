@@ -10,9 +10,28 @@
 		var i = 0;
 		var timing;
 		var canPlay = false; 
-		document.getElementById("video").oncanplaythrough=loadComplete();
+		window.onload=function(){
+			var source = document.getElementById("video");
+			if(!isPc()){
+				source.src="video/bg4.mp4";
+				$("#text").css("top", "40%");
+			}else{
+				source.src="video/bg2.mp4";
+			}
+			document.getElementById("video").oncanplaythrough=loadComplete();
+		}
 		function loadComplete(){
 			canPlay = true;
+		}
+		function isPc(){
+			var userAgentInfo = navigator.userAgent;
+			var agents = new Array("Android", "iPhone", "Windows Phone", "iPad", "iPod");
+			for(var i=0; i < agents.length;i++){
+				if(userAgentInfo.indexOf(agents[i]) > 0){
+					return false
+				}
+			}
+			return true;
 		}
 		function playVideo(){
 			if (canPlay) {
@@ -113,7 +132,6 @@
 </head>
 <body>
 	<video id="video" preload>
-		<source src="video/bg2.mp4">
 	</video>
 
 	<!-- 导航栏 -->
