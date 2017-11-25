@@ -97,7 +97,7 @@ Dotline.prototype.drawLine = function(dots){
 
       _that.ctx.beginPath();
       _that.ctx.lineWidth = ratio / 2;
-            _that.ctx.strokeStyle = 'rgba(200,200,200,' + (ratio + 0.2) + ')';
+            _that.ctx.strokeStyle = 'rgba(130,130,130,' + (ratio + 0.2) + ')';
       _that.ctx.moveTo(dot.x, dot.y);
       _that.ctx.lineTo(nowDot.x, nowDot.y);
       _that.ctx.stroke();//不描边看不出效果

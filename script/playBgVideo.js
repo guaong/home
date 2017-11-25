@@ -1,16 +1,4 @@
-//加载背景
-function loadBg(){
-  var winHeight = document.documentElement.clientHeight;
-  var winWidth = document.documentElement.clientWidth;
-  var dotline = new Dotline({
-    dom:'bg',//画布id
-    cw:winWidth,//画布宽
-    ch:winHeight,//画布高
-    ds:100,//点的个数
-    r:0.5,//圆点半径
-    dis:80//触发连线的距离
-  }).start();
-}
+
 //视频加载完成
 function loadComplete(){
   canPlay = true;

@@ -26,7 +26,19 @@
 			}
 			document.getElementById("video").oncanplaythrough=loadComplete();
 		}
-
+		//加载背景
+		function loadBg(){
+		  var winHeight = document.documentElement.clientHeight;
+		  var winWidth = document.documentElement.clientWidth;
+		  var dotline = new Dotline({
+		    dom:'bg',//画布id
+		    cw:winWidth,//画布宽
+		    ch:winHeight,//画布高
+		    ds:100,//点的个数
+		    r:0.5,//圆点半径
+		    dis:80//触发连线的距离
+		  }).start();
+		}
 	</script>
 	<link rel="stylesheet" type="text/css" href="style/navigation_1.css">
 	<style type="text/css">
