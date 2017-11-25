@@ -20,7 +20,10 @@ function playVideo(){
     $("video").css("display", "block");
     $("#bg").fadeOut(500);
     text = $("#text");
-    $("#play").fadeOut(500);
+    $("#play").val("");
+    $("#play").animate({width:"60px"});
+    $("#btn").animate({bottom:"0px", opacity:"0"});
+    $("#play").fadeOut(0);
     $("#text").fadeOut(500);
     document.getElementById('video').play();
     timing = setInterval(showNext,15000);
