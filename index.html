@@ -4,65 +4,29 @@
 	<meta charset="UTF-8">
 	<title>guaong</title>
 	<link href="video/bg3.mp4">
-	<script src="jquery-3.2.1.min.js"></script>
+	<script src="script/jquery-3.2.1.min.js"></script>
+	<script src="script/bg.js"></script>
+	<script src="script/playBgVideo.js"></script>
 	<script type="text/javascript">
-		var content = new Array("welcome to my home","i am guaong", "this is my blog", "to record life and some learning notes", "thank you again for coming", "my home");
+		var content;
 		var text;
 		var i = 0;
 		var timing;
 		var canPlay = false;
 		window.onload=function(){
+			loadBg();
 			var source = document.getElementById("video");
 			if(!isPc()){
 				source.src="video/bg4.mp4";
 				$("#text").css("top", "40%");
+				content = new Array("i am guaong", "this is my blog","my home");
 			}else{
 				source.src="video/bg3.mp4";
+				content = new Array("i am guaong", "this is my blog", "to record life and some learning notes", "thank you again for coming", "my home");
 			}
 			document.getElementById("video").oncanplaythrough=loadComplete();
 		}
-		function loadComplete(){
-			canPlay = true;
-		}
-		function isPc(){
-			var userAgentInfo = navigator.userAgent;
-			var agents = new Array("Android", "iPhone", "Windows Phone", "iPad", "iPod");
-			for(var i=0; i < agents.length;i++){
-				if(userAgentInfo.indexOf(agents[i]) > 0){
-					return false
-				}
-			}
-			return true;
-		}
-		function playVideo(){
-			if (canPlay) {
-				$("video").css("display", "block");
-				text = $("#text");
-				document.getElementById('video').play();
-				timing = setInterval(showNext,5000);
-				isStart = true;
-				$("#play").fadeOut(500);
-				isVideoStop();
-			}
-		}
-		function isVideoStop(){
-			var video=document.getElementById("video");
-			video.addEventListener("ended",function(){
-    			$('video').hide();
-			});
-		}
-		function showNext(){
-			text.text(content[i]);
-			text.fadeIn(500);
-			i++;
-			if(i >= content.length){
-				clearInterval(timing);
-				$("#content").fadeIn(3000);
-				text.animate({fontSize:'105px', fontWeight:'900'}, 1000);
-				return;
-			}
-			text.delay(3000).fadeOut(1000);
-		}
+
 	</script>
 	<link rel="stylesheet" type="text/css" href="style/navigation_1.css">
 	<style type="text/css">
@@ -81,6 +45,12 @@
 			width: 100%;
 			filter: grayscale(100%);
 			-webkit-filter:grayscale(100%);
+		}
+
+		#bg{
+			display: block;
+			margin: 0 auto;
+			background: #000;
 		}
 		/*--------------- top ---------------*/
 
@@ -132,6 +102,9 @@
 	</style>
 </head>
 <body>
+
+	<canvas id="bg" style="background-color: #000;"></canvas>
+
 	<video id="video" preload>
 	</video>
 
@@ -139,7 +112,7 @@
 	<ul id="navigation_bar">
 		<li class="navigation_bar_li"><a href="" class="navigation_bar_a">other</a></li>
 		<li class="navigation_bar_li"><a href="photo.html" class="navigation_bar_a">photo</a></li>
-		<li class="navigation_bar_li"><a href="https://guaong.github.io/blog" class="navigation_bar_a">blog</a></li>
+		<li class="navigation_bar_li"><a href="" class="navigation_bar_a">article</a></li>
 	</ul>
 
 	<div id="text">welcome to my home</div>
