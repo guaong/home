@@ -11,6 +11,13 @@
 				$(this).fadeIn(i * 1000);
 				i++;
 			});
+			getImgPaths();
+		}
+		function getImgPaths(){
+			$.get("image/len.txt", function (data, textStauts) {
+    		var result=data;
+				alert(result);
+			});
 		}
 	</script>
 	<link rel="stylesheet" type="text/css" href="style/navigation_2.css">
