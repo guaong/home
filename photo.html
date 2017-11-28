@@ -5,6 +5,8 @@
 	<title>photo</title>
 	<script src="jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
+		var len = 30;
+		var currentLen = 0;
 		window.onload=function(){
 			var i = 1;
 			$(".block").each(function(){
@@ -15,9 +17,51 @@
 		}
 		function getImgPaths(){
 			$.get("image/len.txt", function (data, textStauts) {
-    		var result=data;
-				alert(result);
+    		len = data;
 			});
+			for(var i = 0; i < 10; i++){
+				var path = 	"image/"+(i+1)+".jpg";
+				$(".block_img").eq(i).attr("src",src=path);
+			}
+			currentLen = 10;
+		}
+		function changeImg(flag){
+			if(flag == 1){ //上一页
+				if(currentLen > 10){
+					var i = currentLen % 10;
+					if(i != 0){// 即表示当前页不足十个
+						currentLen = currentLen - i;
+					}else{
+						currentLen = currentLen - 10;
+					}
+					for(var j = currentLen; j > currentLen - 10; j--){
+						var path = 	"image/"+j+".jpg"+"?t="+Math.random();
+						$(".block_img").eq(j-1).attr("src", src=path);
+						$(".block_img").eq(j-1).show();
+					}
+				}
+			}else{ //下一页
+				if(currentLen < len){
+					var i = len - currentLen;
+					if(i < 10){ //下页不足十个
+						for(var j = 9; j >= i; j--){
+							$(".block_img").eq(j).hide();
+						}
+						for(var k = 0; k < i; k++){
+							currentLen++;
+							var path = 	"image/"+(currentLen)+".jpg";
+							$(".block_img").eq(k).attr("src", path);
+						}
+					}else{
+						var i=0;
+						for(var g = currentLen + 1; g <= currentLen + 10; g++,i++){
+							var path = 	"image/"+g+".jpg"+"?t="+Math.random();
+							$(".block_img").eq(i).attr("src", path);
+						}
+						currentLen = currentLen + 10;
+					}
+				}
+			}
 		}
 	</script>
 	<link rel="stylesheet" type="text/css" href="style/navigation_2.css">
@@ -93,59 +137,59 @@
 	<div id="blocks">
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/01.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/02.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/03.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/04.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/05.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/06.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/07.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/08.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/09.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 		<div class="block">
 			<a href="" class="block_a">
-				<img src="image/10.jpg" class="block_img">
+				<img class="block_img">
 			</a>
 		</div>
 	</div>
 
 	<div id="btn">
-		<input type="button" value="last" id="last">
-		<input type="button" value="next" id="next">
+		<input type="button" value="last" id="last" onclick="changeImg(1)">>
+		<input type="button" value="next" id="next" onclick="changeImg(0)">
 	</div>
 </body>
 </html>
