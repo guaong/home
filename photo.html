@@ -34,13 +34,12 @@
 					}else{
 						currentLen = currentLen - 10;
 					}
+					var k = 9;
 					for(var j = currentLen; j > currentLen - 10; j--){
 						var path = 	"image/"+j+".jpg"+"?t="+new Date();
-						var k = j % 10;
-						if(k==0)k=10;
+						$(".block_img").eq(k).attr("src", src=path);
+						$(".block_img").eq(k).show();
 						k--;
-						$(".block_img").eq(j-1).attr("src", src=path);
-						$(".block_img").eq(j-1).show();
 					}
 				}
 			}else{ //下一页
