@@ -20,7 +20,7 @@
     		len = data;
 			});
 			for(var i = 0; i < 10; i++){
-				var path = 	"image/"+(i+1)+".jpg";
+				var path = 	"image/"+(i+1)+".jpg?t="+new Date();
 				$(".block_img").eq(i).attr("src",src=path);
 			}
 			currentLen = 10;
@@ -35,7 +35,7 @@
 						currentLen = currentLen - 10;
 					}
 					for(var j = currentLen; j > currentLen - 10; j--){
-						var path = 	"image/"+j+".jpg"+"?t="+Math.random();
+						var path = 	"image/"+j+".jpg"+"?t="+new Date();
 						$(".block_img").eq(j-1).attr("src", src=path);
 						$(".block_img").eq(j-1).show();
 					}
@@ -49,13 +49,13 @@
 						}
 						for(var k = 0; k < i; k++){
 							currentLen++;
-							var path = 	"image/"+(currentLen)+".jpg";
+							var path = 	"image/"+(currentLen)+".jpg?t="+new Date();
 							$(".block_img").eq(k).attr("src", path);
 						}
 					}else{
 						var i=0;
 						for(var g = currentLen + 1; g <= currentLen + 10; g++,i++){
-							var path = 	"image/"+g+".jpg"+"?t="+Math.random();
+							var path = 	"image/"+g+".jpg"+"?t="+new Date();
 							$(".block_img").eq(i).attr("src", path);
 						}
 						currentLen = currentLen + 10;
